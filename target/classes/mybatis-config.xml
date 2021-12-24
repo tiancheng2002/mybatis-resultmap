@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--核心配置文件-->
+<configuration>
+    <!--
+        properties:加载对应的配置文件
+        settings:配置Mybatis的一些设置，如：log4j日志信息等
+        typeAliases:扫描对应包下面的实体类，在xml文件中用小写表示就好
+        environments:配置数据库环境，可以配置多个，最后生效的为default
+        transactionManager:声明事物管理器
+        mappers:扫描对应包下面的mapper.xml文件
+    -->
+    <properties resource="db.properties" />
+
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="LOG4J"/>-->
+<!--        <setting name="cacheEnabled" value="true"/>-->
+<!--    </settings>-->
+
+    <typeAliases>
+        <package name="com.zhu.pojo" />
+    </typeAliases>
+
+    <!--环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.zhu.mapper" />
+    </mappers>
+</configuration>

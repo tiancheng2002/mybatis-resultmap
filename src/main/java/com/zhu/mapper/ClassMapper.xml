@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--核心配置文件-->
+<mapper namespace="com.zhu.mapper.ClassMapper">
+
+<!--        <select id="getStudent" resultType="student">-->
+<!--            select * from student where cid = #{cid}-->
+<!--        </select>-->
+
+<!--        <select id="getStudentClass" resultMap="StudentClass">-->
+<!--            select * from class-->
+<!--        </select>-->
+
+<!--        &lt;!&ndash;-->
+<!--            collection:表示集合类对象，常用于一对多-->
+<!--            ofType:表示返回的集合里面的泛型-->
+<!--            这段sql语句的意思是通过查询出来的cid来查找对应班级的学生信息-->
+<!--        &ndash;&gt;-->
+<!--        <resultMap id="StudentClass" type="class">-->
+<!--            <collection property="students" javaType="ArrayList" ofType="student" column="cid" select="getStudent" />-->
+<!--        </resultMap>-->
+
+    <select id="getStudentClass" resultMap="StudentClass">
+        select a.*,b.* from student a,class b where a.cid=b.cid;
+    </select>
+
+    <resultMap id="StudentClass" type="class">
+        <result property="cid" column="cid" />
+        <result property="cname" column="cname" />
+        <result property="grade" column="grade" />
+        <collection property="students" ofType="student">
+            <result property="sid" column="sid" />
+            <result property="name" column="name" />
+            <result property="cid" column="cid" />
+        </collection>
+    </resultMap>
+            
+</mapper>

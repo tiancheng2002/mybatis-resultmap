@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--核心配置文件-->
+<mapper namespace="com.zhu.mapper.StudentMapper">
+
+<!--    <select id="getStudent" resultMap="getSClass">-->
+<!--        select * from student;-->
+<!--    </select>-->
+
+<!--    <select id="getStudentClass" resultType="class">-->
+<!--        select * from class where cid = #{cid}-->
+<!--    </select>-->
+<!--    -->
+<!--    <resultMap id="getSClass" type="student">-->
+<!--        <association property="studentClass" column="cid" javaType="Class" select="getStudentClass" />-->
+<!--    </resultMap>-->
+
+<!--    <select id="getStudent" resultMap="getSClass">-->
+<!--        select a.*,b.* from student a,class b where a.cid=b.cid-->
+<!--    </select>-->
+
+<!--    <resultMap id="getSClass" type="student">-->
+<!--        <result property="sid" column="sid" />-->
+<!--        <result property="name" column="name" />-->
+<!--        <association property="studentClass" javaType="class">-->
+<!--            <result property="cid" column="cid" />-->
+<!--            <result property="cname" column="cname" />-->
+<!--            <result property="grade" column="grade" />-->
+<!--        </association>-->
+<!--    </resultMap>-->
+            
+</mapper>
